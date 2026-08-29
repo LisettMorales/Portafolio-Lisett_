@@ -1,177 +1,566 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lisett Morales — Diseñadora Gráfica &amp; Comunicadora Social</title>
-<meta name="description" content="Portafolio de Lisett Morales, diseñadora gráfica y comunicadora social — periodista. Diseño editorial, redes sociales, diseño web, multimedia y 3D.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Archivo:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --paper: #F7F5F0;
-    --paper-dim: #EFEAE0;
-    --ink: #1B1A17;
-    --ink-soft: #4A473F;
-    --muted: #8B8579;
-    --accent: #D6432E;
-    --line: #D9D3C6;
-    --max: 1180px;
-  }
 
-  *{ box-sizing: border-box; }
-  html{ scroll-behavior: smooth; }
-  @media (prefers-reduced-motion: reduce){
-    html{ scroll-behavior: auto; }
-    *{ animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
-  }
+    <meta charset="UTF-8">
 
-  body{
-    margin:0;
-    background: var(--paper);
-    color: var(--ink);
-    font-family: 'Archivo', sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-  h1, h2, h3{
-    font-family: 'Fraunces', serif;
-    font-weight: 500;
-    line-height: 1.05;
-    margin: 0;
-    letter-spacing: -0.01em;
-  }
+    <title>
+        Lisett Morales — Diseñadora Gráfica & Comunicadora Social
+    </title>
 
-  a{ color: inherit; text-decoration: none; }
+    <meta
+        name="description"
+        content="Portafolio de Lisett Morales, diseñadora gráfica y comunicadora social — periodista. Diseño editorial, redes sociales, diseño web, multimedia y 3D."
+    >
 
-  .label{
-    font-family: 'Space Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
 
-  .wrap{
-    max-width: var(--max);
-    margin: 0 auto;
-    padding: 0 32px;
-  }
+    <!-- =========================================
+         GOOGLE FONTS
+    ========================================== -->
 
-  /* ---------- Grid ruler backdrop (signature element) ---------- */
-  .grid-guides{
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    max-width: var(--max);
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    padding: 0 32px;
-    opacity: 0.5;
-  }
-  .grid-guides span{
-    border-left: 1px solid var(--line);
-    height: 100%;
-  }
-  .grid-guides span:last-child{ border-right: 1px solid var(--line); }
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
 
-  /* ---------- Nav ---------- */
-  header.nav{
-    position: sticky;
-    top: 0;
-    z-index: 20;
-    background: rgba(247,245,240,0.88);
-    backdrop-filter: blur(6px);
-    border-bottom: 1px solid var(--line);
-  }
-  .nav-inner{
-    max-width: var(--max);
-    margin: 0 auto;
-    padding: 20px 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .nav-name{
-    font-family: 'Fraunces', serif;
-    font-weight: 600;
-    font-size: 18px;
-  }
-  .nav-links{
-    display: flex;
-    gap: 32px;
-    list-style: none;
-    margin: 0; padding: 0;
-    font-family: 'Space Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-  .nav-links a{
-    position: relative;
-    padding-bottom: 4px;
-  }
-  .nav-links a::after{
-    content:"";
-    position: absolute;
-    left:0; bottom:-1px;
-    width:0; height:1px;
-    background: var(--accent);
-    transition: width 0.25s ease;
-  }
-  .nav-links a:hover::after{ width:100%; }
-  .nav-toggle{
-    display:none;
-    background:none;
-    border:none;
-    padding: 4px;
-    cursor:pointer;
-    width: 22px;
-    height: 16px;
-    position: relative;
-  }
-  .nav-toggle span{
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 1.5px;
-    background: var(--ink);
-    transition: transform 0.3s ease, opacity 0.3s ease, top 0.3s ease;
-  }
-  .nav-toggle span:nth-child(1){ top: 0; }
-  .nav-toggle span:nth-child(2){ top: 7px; }
-  .nav-toggle span:nth-child(3){ top: 14px; }
-  .nav-toggle[aria-expanded="true"] span:nth-child(1){ top: 7px; transform: rotate(45deg); }
-  .nav-toggle[aria-expanded="true"] span:nth-child(2){ opacity: 0; }
-  .nav-toggle[aria-expanded="true"] span:nth-child(3){ top: 7px; transform: rotate(-45deg); }
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
-  @media (max-width: 760px){
-    .nav-links{
-      position: absolute;
-      top: 100%; left:0; right:0;
-      background: var(--paper);
-      border-bottom: 1px solid var(--line);
-      flex-direction: column;
-      gap: 0;
-      display: none;
-    }
-    .nav-links.open{ display:flex; }
-    .nav-links a{
-      padding: 16px 32px;
-      border-top: 1px solid var(--line);
-    }
-    .nav-toggle{ display:block; }
-  }
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Archivo:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet"
+    >
 
-  section{
-    position: relative;
-    z-index: 1;
-  }
+
+    <style>
+
+
+        /* ==================================================
+           VARIABLES
+        ================================================== */
+
+        :root {
+
+            --paper: #F7F5F0;
+
+            --paper-dim: #EFEAE0;
+
+            --ink: #1B1A17;
+
+            --ink-soft: #4A473F;
+
+            --muted: #8B8579;
+
+            --accent: #D6432E;
+
+            --line: #D9D3C6;
+
+            --grid-line: rgba(27, 26, 23, 0.10);
+
+            --max: 1180px;
+
+        }
+
+
+
+        /* ==================================================
+           RESET
+        ================================================== */
+
+        * {
+
+            box-sizing: border-box;
+
+        }
+
+
+        html {
+
+            scroll-behavior: smooth;
+
+        }
+
+
+        body {
+
+            margin: 0;
+
+            background: var(--paper);
+
+            color: var(--ink);
+
+            font-family: 'Archivo', sans-serif;
+
+            font-size: 16px;
+
+            line-height: 1.6;
+
+            -webkit-font-smoothing: antialiased;
+
+        }
+
+
+        a {
+
+            color: inherit;
+
+            text-decoration: none;
+
+        }
+
+
+        h1,
+        h2,
+        h3 {
+
+            font-family: 'Fraunces', serif;
+
+            font-weight: 500;
+
+            line-height: 1.05;
+
+            margin: 0;
+
+            letter-spacing: -0.01em;
+
+        }
+
+
+
+        /* ==================================================
+           REDUCIR ANIMACIONES SI EL USUARIO LO PREFIERE
+        ================================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+
+                scroll-behavior: auto;
+
+            }
+
+            * {
+
+                animation-duration: 0.001ms !important;
+
+                transition-duration: 0.001ms !important;
+
+            }
+
+        }
+
+
+
+        /* ==================================================
+           ETIQUETAS PEQUEÑAS
+        ================================================== */
+
+        .label {
+
+            font-family: 'Space Mono', monospace;
+
+            font-size: 12px;
+
+            letter-spacing: 0.12em;
+
+            text-transform: uppercase;
+
+            color: var(--muted);
+
+        }
+
+
+
+        /* ==================================================
+           CONTENEDOR
+        ================================================== */
+
+        .wrap {
+
+            max-width: var(--max);
+
+            margin: 0 auto;
+
+            padding: 0 32px;
+
+        }
+
+
+
+        /* ==================================================
+           GRILLA EDITORIAL ANIMADA
+        ================================================== */
+
+        .grid-guides {
+
+            position: fixed;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            z-index: 0;
+
+            width: 100%;
+
+            height: 100%;
+
+            overflow: hidden;
+
+        }
+
+
+        .grid-guides svg {
+
+            width: 100%;
+
+            height: 100%;
+
+        }
+
+
+        .grid-line {
+
+            fill: none;
+
+            stroke: var(--grid-line);
+
+            stroke-width: 1;
+
+            vector-effect: non-scaling-stroke;
+
+            /*
+                La línea comienza invisible
+                y se va dibujando.
+            */
+
+            stroke-dasharray: 1500;
+
+            stroke-dashoffset: 1500;
+
+            animation:
+                drawGrid 2.5s
+                cubic-bezier(.65, 0, .35, 1)
+                forwards;
+
+        }
+
+
+        /* ==================================================
+           ANIMACIÓN DE LA GRILLA
+        ================================================== */
+
+        @keyframes drawGrid {
+
+            to {
+
+                stroke-dashoffset: 0;
+
+            }
+
+        }
+
+
+        /*
+            Cada línea aparece ligeramente
+            después de la anterior.
+        */
+
+        .grid-line:nth-child(1) {
+
+            animation-delay: .05s;
+
+        }
+
+
+        .grid-line:nth-child(2) {
+
+            animation-delay: .15s;
+
+        }
+
+
+        .grid-line:nth-child(3) {
+
+            animation-delay: .25s;
+
+        }
+
+
+        .grid-line:nth-child(4) {
+
+            animation-delay: .35s;
+
+        }
+
+
+        .grid-line:nth-child(5) {
+
+            animation-delay: .45s;
+
+        }
+
+
+        .grid-line:nth-child(6) {
+
+            animation-delay: .55s;
+
+        }
+
+
+        .grid-line:nth-child(7) {
+
+            animation-delay: .70s;
+
+        }
+
+
+        .grid-line:nth-child(8) {
+
+            animation-delay: .85s;
+
+        }
+
+
+        .grid-line:nth-child(9) {
+
+            animation-delay: 1s;
+
+        }
+
+
+
+        /* ==================================================
+           CONTENIDO SOBRE LA GRILLA
+        ================================================== */
+
+        section {
+
+            position: relative;
+
+            z-index: 1;
+
+        }
+
+
+
+        /* ==================================================
+           NAV
+        ================================================== */
+
+        header.nav {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 20;
+
+            background:
+                rgba(247, 245, 240, 0.88);
+
+            backdrop-filter:
+                blur(6px);
+
+            border-bottom:
+                1px solid var(--line);
+
+        }
+
+
+        .nav-inner {
+
+            max-width: var(--max);
+
+            margin: 0 auto;
+
+            padding: 20px 32px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+        }
+
+
+        .nav-name {
+
+            font-family: 'Fraunces', serif;
+
+            font-weight: 600;
+
+            font-size: 18px;
+
+        }
+
+
+        .nav-links {
+
+            display: flex;
+
+            gap: 32px;
+
+            list-style: none;
+
+            margin: 0;
+
+            padding: 0;
+
+            font-family: 'Space Mono', monospace;
+
+            font-size: 12px;
+
+            letter-spacing: 0.08em;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .nav-links a {
+
+            position: relative;
+
+            padding-bottom: 4px;
+
+        }
+
+
+        .nav-links a::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            bottom: -1px;
+
+            width: 0;
+
+            height: 1px;
+
+            background: var(--accent);
+
+            transition:
+                width 0.25s ease;
+
+        }
+
+
+        .nav-links a:hover::after {
+
+            width: 100%;
+
+        }
+
+
+
+        /* ==================================================
+           MENÚ MOBILE
+        ================================================== */
+
+        .nav-toggle {
+
+            display: none;
+
+            background: none;
+
+            border: none;
+
+            padding: 4px;
+
+            cursor: pointer;
+
+            width: 22px;
+
+            height: 16px;
+
+            position: relative;
+
+        }
+
+
+        .nav-toggle span {
+
+            position: absolute;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 1.5px;
+
+            background: var(--ink);
+
+            transition:
+                transform 0.3s ease,
+                opacity 0.3s ease,
+                top 0.3s ease;
+
+        }
+
+
+        .nav-toggle span:nth-child(1) {
+
+            top: 0;
+
+        }
+
+
+        .nav-toggle span:nth-child(2) {
+
+            top: 7px;
+
+        }
+
+
+        .nav-toggle span:nth-child(3) {
+
+            top: 14px;
+
+        }
+
+
+        .nav-toggle[aria-expanded="true"]
+        span:nth-child(1) {
+
+            top: 7px;
+
+            transform:
+                rotate(45deg);
+
+        }
+
+
+        .nav-toggle[aria-expanded="true"]
+        span:nth-child(2) {
+
+            opacity: 0;
+
+        }
+
+
+        .nav-toggle[aria-expanded="true"]
+        span:nth-child(3) {
+
+            top: 7px;
+
+            transform:
+                rotate(-45deg);
+
+        }
+
+
 
   /* ---------- Hero ---------- */
   .hero{
