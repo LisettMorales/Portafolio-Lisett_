@@ -148,9 +148,9 @@
 
             * {
 
-                animation-duration: 0.009ms !important;
+                animation-duration: 0.001ms !important;
 
-                transition-duration: 0.009ms !important;
+                transition-duration: 0.001ms !important;
 
             }
 
@@ -268,7 +268,9 @@
         }
 
 
-
+        /*
+            Cada línea aparece ligeramente
+            después de la anterior.
         */
 
         .grid-line:nth-child(1) {
@@ -343,307 +345,1760 @@
 
             position: relative;
 
-            z-index: 2;
+            z-index: 1;
 
         }
 
 
 
+        /* ==================================================
+           NAV
+        ================================================== */
 
-  /* ---------- Hero ---------- */
-  .hero{
-    padding: 120px 0 100px;
-    border-bottom: 1px solid var(--line);
-  }
-  .hero .label{ margin-bottom: 20px; display:block; }
-  .hero h1{
-    font-size: clamp(40px, 7vw, 84px);
-    max-width: 15ch;
-  }
-  .hero h1 em{
-    font-style: italic;
-    font-weight: 400;
-    color: var(--accent);
-  }
-  .hero-role{
-    margin-top: 28px;
-    font-size: 18px;
-    color: var(--ink-soft);
-    max-width: 46ch;
-  }
+        header.nav {
 
-  /* ---------- Section heading pattern ---------- */
-  .sec-head{
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: 24px;
-    margin-bottom: 56px;
-    padding-top: 96px;
-  }
-  .sec-head h2{
-    font-size: clamp(28px, 4vw, 44px);
-  }
-  .sec-head .label{ white-space: nowrap; }
+            position: sticky;
 
-  /* ---------- About ---------- */
-  .about-body{
-    display: grid;
-    grid-template-columns: 1fr 1.4fr;
-    gap: 64px;
-    padding-bottom: 96px;
-    border-bottom: 1px solid var(--line);
-  }
-  .about-body p{
-    font-size: 20px;
-    line-height: 1.65;
-    color: var(--ink-soft);
-    max-width: 52ch;
-  }
-  .about-tags{
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-  .about-tags .tag{
-    font-family: 'Space Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--line);
-    color: var(--ink-soft);
-  }
+            top: 0;
 
-  @media (max-width: 760px){
-    .about-body{ grid-template-columns: 1fr; gap: 32px; }
-  }
+            z-index: 20;
 
-  /* ---------- Services ---------- */
-  .services{ padding-bottom: 96px; border-bottom: 1px solid var(--line); }
-  .service-grid{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--line);
-    border: 1px solid var(--line);
-  }
-  .service-cell{
-    background: var(--paper);
-    padding: 28px 24px;
-    font-size: 15px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    cursor: default;
-    transition: background 0.3s ease, transform 0.25s ease, padding-left 0.25s ease;
-  }
-  .service-cell:hover{
-    background: var(--paper-dim);
-    transform: translateY(-2px);
-    padding-left: 30px;
-  }
-  .service-cell:active{
-    transform: translateY(0) scale(0.99);
-  }
-  .service-cell::before{
-    content: "—";
-    color: var(--accent);
-    font-family: 'Space Mono', monospace;
-    transition: transform 0.25s ease;
-  }
-  .service-cell:hover::before{
-    transform: translateX(3px);
-  }
-  @media (max-width: 760px){
-    .service-grid{ grid-template-columns: 1fr 1fr; }
-  }
-  @media (max-width: 480px){
-    .service-grid{ grid-template-columns: 1fr; }
-  }
+            background:
+                rgba(247, 245, 240, 0.88);
 
-  /* ---------- Contact ---------- */
-  .contact{ padding: 96px 0 64px; }
-  .contact h2{
-    font-size: clamp(32px, 6vw, 64px);
-    max-width: 14ch;
-  }
-  .contact-email{
-    display: inline-block;
-    margin-top: 32px;
-    font-family: 'Space Mono', monospace;
-    font-size: 16px;
-    color: var(--accent);
-    border-bottom: 1px solid var(--accent);
-    padding-bottom: 4px;
-    transition: transform 0.25s ease, letter-spacing 0.25s ease;
-  }
-  .contact-email:hover{
-    transform: translateX(4px);
-    letter-spacing: 0.02em;
-  }
-  .contact-email:active{ transform: translateX(2px) scale(0.98); }
-  .contact-socials{
-    margin-top: 56px;
-    display: flex;
-    gap: 40px;
-    flex-wrap: wrap;
-    font-family: 'Space Mono', monospace;
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
-  .contact-socials a{
-    position: relative;
-    border-bottom: 1px solid transparent;
-    padding-bottom: 3px;
-    display: inline-flex;
-    align-items: center;
-    transition: transform 0.25s ease, color 0.25s ease;
-  }
-  .contact-socials a:hover{
-    border-color: var(--ink);
-    transform: translateY(-3px);
-    color: var(--accent);
-  }
-  .contact-socials a:active{ transform: translateY(-1px) scale(0.97); }
+            backdrop-filter:
+                blur(6px);
 
-  footer{
-    border-top: 1px solid var(--line);
-    padding: 24px 0 40px;
-    display:flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    color: var(--muted);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
+            border-bottom:
+                1px solid var(--line);
 
-  /* ---------- reveal on scroll ---------- */
-  .reveal{
-    opacity: 0;
-    transform: translateY(18px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-  .reveal.in{
-    opacity: 1;
-    transform: translateY(0);
-  }
-</style>
+        }
+
+
+        .nav-inner {
+
+            max-width: var(--max);
+
+            margin: 0 auto;
+
+            padding: 20px 32px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+        }
+
+
+        .nav-name {
+
+            font-family: 'Fraunces', serif;
+
+            font-weight: 600;
+
+            font-size: 18px;
+
+        }
+
+
+        .nav-links {
+
+            display: flex;
+
+            gap: 32px;
+
+            list-style: none;
+
+            margin: 0;
+
+            padding: 0;
+
+            font-family: 'Space Mono', monospace;
+
+            font-size: 12px;
+
+            letter-spacing: 0.08em;
+
+            text-transform: uppercase;
+
+        }
+
+
+        .nav-links a {
+
+            position: relative;
+
+            padding-bottom: 4px;
+
+        }
+
+
+        .nav-links a::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            bottom: -1px;
+
+            width: 0;
+
+            height: 1px;
+
+            background: var(--accent);
+
+            transition:
+                width 0.25s ease;
+
+        }
+
+
+        .nav-links a:hover::after {
+
+            width: 100%;
+
+        }
+
+
+
+        /* ==================================================
+           MENÚ MOBILE
+        ================================================== */
+
+        .nav-toggle {
+
+            display: none;
+
+            background: none;
+
+            border: none;
+
+            padding: 4px;
+
+            cursor: pointer;
+
+            width: 22px;
+
+            height: 16px;
+
+            position: relative;
+
+        }
+
+
+        .nav-toggle span {
+
+            position: absolute;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 1.5px;
+
+            background: var(--ink);
+
+            transition:
+                transform 0.3s ease,
+                opacity 0.3s ease,
+                top 0.3s ease;
+
+        }
+
+
+        .nav-toggle span:nth-child(1) {
+
+            top: 0;
+
+        }
+
+
+        .nav-toggle span:nth-child(2) {
+
+            top: 7px;
+
+        }
+
+
+        .nav-toggle span:nth-child(3) {
+
+            top: 14px;
+
+        }
+
+
+        .nav-toggle[aria-expanded="true"]
+        span:nth-child(1) {
+
+            top: 7px;
+
+            transform:
+                rotate(45deg);
+
+        }
+
+
+        .nav-toggle[aria-expanded="true"]
+        span:nth-child(2) {
+
+            opacity: 0;
+
+        }
+
+
+        .nav-toggle[aria-expanded="true"]
+        span:nth-child(3) {
+
+            top: 7px;
+
+            transform:
+                rotate(-45deg);
+
+        }
+
+
+
+        /* ==================================================
+           HERO
+        ================================================== */
+
+        .hero {
+
+            padding:
+
+                120px
+                0
+                100px;
+
+            border-bottom:
+                1px solid var(--line);
+
+        }
+
+
+        .hero .label {
+
+            margin-bottom: 20px;
+
+            display: block;
+
+        }
+
+
+        .hero h1 {
+
+            font-size:
+                clamp(
+                    40px,
+                    7vw,
+                    84px
+                );
+
+            max-width: 15ch;
+
+        }
+
+
+        .hero h1 em {
+
+            font-style: italic;
+
+            font-weight: 400;
+
+            color: var(--accent);
+
+        }
+
+
+        .hero-role {
+
+            margin-top: 28px;
+
+            font-size: 18px;
+
+            color: var(--ink-soft);
+
+            max-width: 46ch;
+
+        }
+
+
+
+        /* ==================================================
+           REDES SOCIALES DEL HERO
+        ================================================== */
+
+        .hero-socials {
+
+            margin-top: 42px;
+
+            display: flex;
+
+            gap: 28px;
+
+            flex-wrap: wrap;
+
+            font-family: 'Space Mono', monospace;
+
+            font-size: 12px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.08em;
+
+        }
+
+
+        .hero-socials a {
+
+            position: relative;
+
+            padding-bottom: 5px;
+
+            border-bottom:
+                1px solid transparent;
+
+            transition:
+                color 0.25s ease,
+                transform 0.25s ease,
+                border-color 0.25s ease;
+
+        }
+
+
+        .hero-socials a:hover {
+
+            color: var(--accent);
+
+            border-color: var(--accent);
+
+            transform:
+                translateY(-3px);
+
+        }
+
+
+
+        /* ==================================================
+           TITULOS DE SECCIÓN
+        ================================================== */
+
+        .sec-head {
+
+            display: flex;
+
+            align-items: baseline;
+
+            justify-content: space-between;
+
+            gap: 24px;
+
+            margin-bottom: 56px;
+
+            padding-top: 96px;
+
+        }
+
+
+        .sec-head h2 {
+
+            font-size:
+                clamp(
+                    28px,
+                    4vw,
+                    44px
+                );
+
+        }
+
+
+        .sec-head .label {
+
+            white-space: nowrap;
+
+        }
+
+
+
+        /* ==================================================
+           SOBRE MÍ
+        ================================================== */
+
+        .about-body {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1.4fr;
+
+            gap: 64px;
+
+            padding-bottom: 96px;
+
+            border-bottom:
+                1px solid var(--line);
+
+        }
+
+
+        .about-body p {
+
+            font-size: 20px;
+
+            line-height: 1.65;
+
+            color: var(--ink-soft);
+
+            max-width: 52ch;
+
+        }
+
+
+        .about-tags {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 14px;
+
+        }
+
+
+        .about-tags .tag {
+
+            font-family:
+                'Space Mono',
+                monospace;
+
+            font-size: 12px;
+
+            letter-spacing: 0.06em;
+
+            text-transform: uppercase;
+
+            padding: 10px 0;
+
+            border-bottom:
+                1px solid var(--line);
+
+            color: var(--ink-soft);
+
+        }
+
+
+
+        /* ==================================================
+           SERVICIOS
+        ================================================== */
+
+        .services {
+
+            padding-bottom: 96px;
+
+            border-bottom:
+                1px solid var(--line);
+
+        }
+
+
+        .service-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 1px;
+
+            background:
+                var(--line);
+
+            border:
+                1px solid var(--line);
+
+        }
+
+
+        .service-cell {
+
+            background:
+                rgba(247, 245, 240, 0.90);
+
+            padding:
+                28px 24px;
+
+            font-size: 15px;
+
+            font-weight: 500;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            cursor: default;
+
+            transition:
+                background 0.3s ease,
+                transform 0.25s ease,
+                padding-left 0.25s ease;
+
+        }
+
+
+        .service-cell:hover {
+
+            background:
+                var(--paper-dim);
+
+            transform:
+                translateY(-2px);
+
+            padding-left: 30px;
+
+        }
+
+
+        .service-cell:active {
+
+            transform:
+                translateY(0)
+                scale(0.99);
+
+        }
+
+
+        .service-cell::before {
+
+            content: "—";
+
+            color: var(--accent);
+
+            font-family:
+                'Space Mono',
+                monospace;
+
+            transition:
+                transform 0.25s ease;
+
+        }
+
+
+        .service-cell:hover::before {
+
+            transform:
+                translateX(3px);
+
+        }
+
+
+
+        /* ==================================================
+           CONTACTO
+        ================================================== */
+
+        .contact {
+
+            padding:
+                96px 0 64px;
+
+        }
+
+
+        .contact h2 {
+
+            font-size:
+                clamp(
+                    32px,
+                    6vw,
+                    64px
+                );
+
+            max-width: 14ch;
+
+        }
+
+
+        .contact-email {
+
+            display: inline-block;
+
+            margin-top: 32px;
+
+            font-family:
+                'Space Mono',
+                monospace;
+
+            font-size: 16px;
+
+            color: var(--accent);
+
+            border-bottom:
+                1px solid var(--accent);
+
+            padding-bottom: 4px;
+
+            transition:
+                transform 0.25s ease,
+                letter-spacing 0.25s ease;
+
+        }
+
+
+        .contact-email:hover {
+
+            transform:
+                translateX(4px);
+
+            letter-spacing:
+                0.02em;
+
+        }
+
+
+        .contact-email:active {
+
+            transform:
+                translateX(2px)
+                scale(0.98);
+
+        }
+
+
+        .contact-socials {
+
+            margin-top: 56px;
+
+            display: flex;
+
+            gap: 40px;
+
+            flex-wrap: wrap;
+
+            font-family:
+                'Space Mono',
+                monospace;
+
+            font-size: 13px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.06em;
+
+        }
+
+
+        .contact-socials a {
+
+            position: relative;
+
+            border-bottom:
+                1px solid transparent;
+
+            padding-bottom: 3px;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            transition:
+                transform 0.25s ease,
+                color 0.25s ease;
+
+        }
+
+
+        .contact-socials a:hover {
+
+            border-color:
+                var(--ink);
+
+            transform:
+                translateY(-3px);
+
+            color:
+                var(--accent);
+
+        }
+
+
+        .contact-socials a:active {
+
+            transform:
+                translateY(-1px)
+                scale(0.97);
+
+        }
+
+
+
+        /* ==================================================
+           FOOTER
+        ================================================== */
+
+        footer {
+
+            border-top:
+                1px solid var(--line);
+
+            padding:
+                24px 0 40px;
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+            font-family:
+                'Space Mono',
+                monospace;
+
+            font-size: 11px;
+
+            color: var(--muted);
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                0.06em;
+
+        }
+
+
+
+        /* ==================================================
+           ANIMACIÓN DE CONTENIDO
+        ================================================== */
+
+        .reveal {
+
+            opacity: 0;
+
+            transform:
+                translateY(18px);
+
+            transition:
+                opacity 0.6s ease,
+                transform 0.6s ease;
+
+        }
+
+
+        .reveal.in {
+
+            opacity: 1;
+
+            transform:
+                translateY(0);
+
+        }
+
+
+
+        /* ==================================================
+           RESPONSIVE
+        ================================================== */
+
+        @media (max-width: 760px) {
+
+
+            /* ---------- NAV ---------- */
+
+            .nav-links {
+
+                position: absolute;
+
+                top: 100%;
+
+                left: 0;
+
+                right: 0;
+
+                background:
+                    var(--paper);
+
+                border-bottom:
+                    1px solid var(--line);
+
+                flex-direction: column;
+
+                gap: 0;
+
+                display: none;
+
+            }
+
+
+            .nav-links.open {
+
+                display: flex;
+
+            }
+
+
+            .nav-links a {
+
+                padding:
+                    16px 32px;
+
+                border-top:
+                    1px solid var(--line);
+
+            }
+
+
+            .nav-toggle {
+
+                display: block;
+
+            }
+
+
+
+            /* ---------- HERO ---------- */
+
+            .hero {
+
+                padding:
+                    90px 0 80px;
+
+            }
+
+
+            .hero h1 {
+
+                font-size:
+                    clamp(
+                        42px,
+                        11vw,
+                        68px
+                    );
+
+            }
+
+
+            .hero-role {
+
+                font-size: 16px;
+
+            }
+
+
+            .hero-socials {
+
+                gap:
+                    18px 24px;
+
+            }
+
+
+
+            /* ---------- ABOUT ---------- */
+
+            .about-body {
+
+                grid-template-columns: 1fr;
+
+                gap: 32px;
+
+            }
+
+
+
+            /* ---------- SERVICES ---------- */
+
+            .service-grid {
+
+                grid-template-columns:
+                    1fr 1fr;
+
+            }
+
+        }
+
+
+
+        @media (max-width: 480px) {
+
+
+            .wrap {
+
+                padding:
+                    0 22px;
+
+            }
+
+
+            .nav-inner {
+
+                padding:
+                    18px 22px;
+
+            }
+
+
+            .service-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .sec-head {
+
+                padding-top:
+                    70px;
+
+            }
+
+
+            .contact-socials {
+
+                gap:
+                    22px;
+
+            }
+
+        }
+
+
+    </style>
+
 </head>
+
+
 <body>
 
-<div class="grid-guides" aria-hidden="true">
-  <span></span><span></span><span></span><span></span><span></span><span></span>
-  <span></span><span></span><span></span><span></span><span></span><span></span>
-</div>
 
-<header class="nav">
-  <div class="nav-inner">
-    <a href="#inicio" class="nav-name">Lisett Morales</a>
-    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Abrir menú">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#sobre-mi">Sobre mí</a></li>
-      <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-  </div>
-</header>
+    <!-- ==================================================
+         GRILLA EDITORIAL ANIMADA
+    ================================================== -->
 
-<main class="wrap">
+    <div
+        class="grid-guides"
+        aria-hidden="true">
 
-  <section class="hero" id="inicio">
-    <span class="label reveal">Portafolio — 2026</span>
-    <h1 class="reveal" style="transition-delay:.08s">Diseño que <em>comunica</em>, no solo decora.</h1>
-    <p class="hero-role reveal" style="transition-delay:.16s">Diseñadora gráfica y comunicadora social — periodista. Transformo ideas en propuestas visuales claras, atractivas y estratégicas.</p>
-  </section>
 
-  <section id="sobre-mi">
-    <div class="sec-head">
-      <h2 class="reveal">Sobre mí</h2>
-      <span class="label">01 — Perfil</span>
+        <svg
+            viewBox="0 0 1200 1000"
+            preserveAspectRatio="none">
+
+
+            <!-- =========================================
+                 LÍNEAS VERTICALES
+            ========================================== -->
+
+
+            <line
+                class="grid-line"
+                x1="100"
+                y1="0"
+                x2="100"
+                y2="1000"
+            />
+
+
+            <line
+                class="grid-line"
+                x1="300"
+                y1="0"
+                x2="300"
+                y2="1000"
+            />
+
+
+            <line
+                class="grid-line"
+                x1="500"
+                y1="0"
+                x2="500"
+                y2="1000"
+            />
+
+
+            <line
+                class="grid-line"
+                x1="700"
+                y1="0"
+                x2="700"
+                y2="1000"
+            />
+
+
+            <line
+                class="grid-line"
+                x1="900"
+                y1="0"
+                x2="900"
+                y2="1000"
+            />
+
+
+            <line
+                class="grid-line"
+                x1="1100"
+                y1="0"
+                x2="1100"
+                y2="1000"
+            />
+
+
+            <!-- =========================================
+                 LÍNEAS HORIZONTALES
+            ========================================== -->
+
+
+            <line
+                class="grid-line"
+                x1="0"
+                y1="200"
+                x2="1200"
+                y2="200"
+            />
+
+
+            <line
+                class="grid-line"
+                x1="0"
+                y1="500"
+                x2="1200"
+                y2="500"
+            />
+
+
+            <line
+                class="grid-line"
+                x1="0"
+                y1="800"
+                x2="1200"
+                y2="800"
+            />
+
+
+        </svg>
+
+
     </div>
-    <div class="about-body">
-      <p class="reveal">Soy diseñadora gráfica y profesional en Comunicación Social — Periodismo, con experiencia en comunicación visual, diseño digital y creación de contenido multimedia. Me interesa transformar ideas en propuestas visuales que comuniquen de manera clara, atractiva y estratégica.</p>
-      <div class="about-tags">
-        <div class="tag reveal" style="transition-delay:.05s">Comunicación visual</div>
-        <div class="tag reveal" style="transition-delay:.1s">Identidad de marca</div>
-        <div class="tag reveal" style="transition-delay:.15s">Contenido multimedia</div>
-        <div class="tag reveal" style="transition-delay:.2s">Diseño editorial</div>
-        <div class="tag reveal" style="transition-delay:.25s">Producción audiovisual</div>
-      </div>
-    </div>
-  </section>
 
-  <section id="servicios" class="services">
-    <div class="sec-head">
-      <h2 class="reveal">Servicios</h2>
-      <span class="label">02 — Qué ofrezco</span>
-    </div>
-    <div class="service-grid">
-      <div class="service-cell reveal">Branding e identidad visual</div>
-      <div class="service-cell reveal" style="transition-delay:.03s">Diseño para redes sociales</div>
-      <div class="service-cell reveal" style="transition-delay:.09s">Diseño web</div>
-      <div class="service-cell reveal" style="transition-delay:.15s">Edición de video</div>
-      <div class="service-cell reveal" style="transition-delay:.18s">Motion graphics</div>
-      <div class="service-cell reveal" style="transition-delay:.21s">Modelado 3D</div>
-      <div class="service-cell reveal" style="transition-delay:.24s">Realidad aumentada</div>
-    </div>
-  </section>
 
-  <section id="contacto" class="contact">
-    <span class="label">03 — Contacto</span>
-    <h2 class="reveal">Hablemos de tu próximo proyecto.</h2>
-    <a class="contact-email reveal" style="transition-delay:.1s" href="mailto:Lisett604@hotmail.com">Lisett604@hotmail.com</a>
-    <div class="contact-socials reveal" style="transition-delay:.18s">
-      <a href="https://instagram.com/lisett_morales" target="_blank" rel="noopener">Instagram ↗</a>
-      <a href="https://behance.net/lisettmorales1" target="_blank" rel="noopener">Behance ↗</a>
-      <a href="https://linkedin.com/in/lisett-morales-villamil-753b09200" target="_blank" rel="noopener">LinkedIn ↗</a>
-    </div>
-  </section>
 
-</main>
+    <!-- ==================================================
+         NAV
+    ================================================== -->
 
-<footer class="wrap">
-  <span>Lisett Morales — Diseño &amp; Comunicación</span>
-  <span>© 2026</span>
-</footer>
+    <header class="nav">
 
-<script>
-  const navToggle = document.getElementById('navToggle');
-  const navLinks = document.getElementById('navLinks');
-  navToggle.addEventListener('click', () => {
-    const isOpen = navLinks.classList.toggle('open');
-    navToggle.setAttribute('aria-expanded', isOpen);
-  });
-  navLinks.querySelectorAll('a').forEach(a => {
-    a.addEventListener('click', () => {
-      navLinks.classList.remove('open');
-      navToggle.setAttribute('aria-expanded', false);
-    });
-  });
 
-  const revealEls = document.querySelectorAll('.reveal');
-  if('IntersectionObserver' in window){
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.classList.add('in');
-          io.unobserve(entry.target);
+        <div class="nav-inner">
+
+
+            <!-- 🔴 CAMBIA AQUÍ SI QUIERES OTRO NOMBRE -->
+
+            <a
+                href="#inicio"
+                class="nav-name">
+
+                Lisett Morales
+
+            </a>
+
+
+
+            <button
+                class="nav-toggle"
+                id="navToggle"
+                aria-expanded="false"
+                aria-controls="navLinks"
+                aria-label="Abrir menú">
+
+
+                <span></span>
+
+                <span></span>
+
+                <span></span>
+
+
+            </button>
+
+
+
+            <ul
+                class="nav-links"
+                id="navLinks">
+
+
+                <li>
+
+                    <a href="#sobre-mi">
+
+                        Sobre mí
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="#servicios">
+
+                        Servicios
+
+                    </a>
+
+                </li>
+
+
+                <li>
+
+                    <a href="#contacto">
+
+                        Contacto
+
+                    </a>
+
+                </li>
+
+
+            </ul>
+
+
+        </div>
+
+
+    </header>
+
+
+
+    <!-- ==================================================
+         CONTENIDO PRINCIPAL
+    ================================================== -->
+
+    <main class="wrap">
+
+
+        <!-- ==================================================
+             HERO / PRIMERA PARTE
+        ================================================== -->
+
+        <section
+            class="hero"
+            id="inicio">
+
+
+            <span
+                class="label reveal">
+
+                Portafolio — 2026
+
+            </span>
+
+
+
+            <h1
+                class="reveal"
+                style="transition-delay:.08s">
+
+
+                Diseño que
+
+                <em>
+                    comunica
+                </em>,
+
+                no solo decora.
+
+
+            </h1>
+
+
+
+            <p
+                class="hero-role reveal"
+                style="transition-delay:.16s">
+
+
+                Diseñadora gráfica y comunicadora
+                social — periodista. Transformo ideas
+                en propuestas visuales claras,
+                atractivas y estratégicas.
+
+
+            </p>
+
+
+
+            <!-- ==================================================
+                 REDES SOCIALES
+            ================================================== -->
+
+            <div
+                class="hero-socials reveal"
+                style="transition-delay:.24s">
+
+
+                <!-- 🔴 CAMBIA AQUÍ: BEHANCE -->
+
+                <a
+                    href="TU_LINK_DE_BEHANCE"
+                    target="_blank"
+                    rel="noopener">
+
+                    Behance ↗
+
+                </a>
+
+
+
+                <!-- 🔴 CAMBIA AQUÍ: INSTAGRAM -->
+
+                <a
+                    href="TU_LINK_DE_INSTAGRAM"
+                    target="_blank"
+                    rel="noopener">
+
+                    Instagram ↗
+
+                </a>
+
+
+
+                <!-- 🔴 CAMBIA AQUÍ: LINKEDIN -->
+
+                <a
+                    href="TU_LINK_DE_LINKEDIN"
+                    target="_blank"
+                    rel="noopener">
+
+                    LinkedIn ↗
+
+                </a>
+
+
+
+                <!-- 🔴 CAMBIA AQUÍ: EMAIL -->
+
+                <a
+                    href="mailto:TU_CORREO_AQUI">
+
+                    Email ↗
+
+                </a>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             SOBRE MÍ
+        ================================================== -->
+
+        <section
+            id="sobre-mi">
+
+
+            <div class="sec-head">
+
+
+                <h2 class="reveal">
+
+                    Sobre mí
+
+                </h2>
+
+
+                <span class="label">
+
+                    01 — Perfil
+
+                </span>
+
+
+            </div>
+
+
+
+            <div class="about-body">
+
+
+                <p
+                    class="reveal">
+
+
+                    Soy diseñadora gráfica y profesional
+                    en Comunicación Social — Periodismo,
+                    con experiencia en comunicación visual,
+                    diseño digital y creación de contenido
+                    multimedia.
+
+                    Me interesa transformar ideas en
+                    propuestas visuales que comuniquen
+                    de manera clara, atractiva y estratégica.
+
+
+                </p>
+
+
+
+                <div class="about-tags">
+
+
+                    <div
+                        class="tag reveal"
+                        style="transition-delay:.05s">
+
+                        Comunicación visual
+
+                    </div>
+
+
+                    <div
+                        class="tag reveal"
+                        style="transition-delay:.1s">
+
+                        Identidad de marca
+
+                    </div>
+
+
+                    <div
+                        class="tag reveal"
+                        style="transition-delay:.15s">
+
+                        Contenido multimedia
+
+                    </div>
+
+
+                    <div
+                        class="tag reveal"
+                        style="transition-delay:.2s">
+
+                        Diseño editorial
+
+                    </div>
+
+
+                    <div
+                        class="tag reveal"
+                        style="transition-delay:.25s">
+
+                        Producción audiovisual
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             SERVICIOS
+        ================================================== -->
+
+        <section
+            id="servicios"
+            class="services">
+
+
+            <div class="sec-head">
+
+
+                <h2 class="reveal">
+
+                    Servicios
+
+                </h2>
+
+
+                <span class="label">
+
+                    02 — Qué ofrezco
+
+                </span>
+
+
+            </div>
+
+
+
+            <div class="service-grid">
+
+
+                <div
+                    class="service-cell reveal">
+
+                    Branding e identidad visual
+
+                </div>
+
+
+                <div
+                    class="service-cell reveal"
+                    style="transition-delay:.03s">
+
+                    Diseño para redes sociales
+
+                </div>
+
+
+                <div
+                    class="service-cell reveal"
+                    style="transition-delay:.09s">
+
+                    Diseño web
+
+                </div>
+
+
+                <div
+                    class="service-cell reveal"
+                    style="transition-delay:.15s">
+
+                    Edición de video
+
+                </div>
+
+
+                <div
+                    class="service-cell reveal"
+                    style="transition-delay:.18s">
+
+                    Motion graphics
+
+                </div>
+
+
+                <div
+                    class="service-cell reveal"
+                    style="transition-delay:.21s">
+
+                    Modelado 3D
+
+                </div>
+
+
+                <div
+                    class="service-cell reveal"
+                    style="transition-delay:.24s">
+
+                    Realidad aumentada
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ==================================================
+             CONTACTO
+        ================================================== -->
+
+        <section
+            id="contacto"
+            class="contact">
+
+
+            <span class="label">
+
+                03 — Contacto
+
+            </span>
+
+
+
+            <h2 class="reveal">
+
+
+                Hablemos de tu
+                próximo proyecto.
+
+
+            </h2>
+
+
+
+            <!-- 🔴 CAMBIA AQUÍ: TU CORREO -->
+
+            <a
+                class="contact-email reveal"
+                style="transition-delay:.1s"
+                href="mailto:TU_CORREO_AQUI">
+
+
+                TU_CORREO_AQUI
+
+
+            </a>
+
+
+
+            <!-- ==================================================
+                 REDES DE CONTACTO
+            ================================================== -->
+
+            <div
+                class="contact-socials reveal"
+                style="transition-delay:.18s">
+
+
+                <!-- 🔴 CAMBIA AQUÍ -->
+
+                <a
+                    href="TU_LINK_DE_INSTAGRAM"
+                    target="_blank"
+                    rel="noopener">
+
+                    Instagram ↗
+
+                </a>
+
+
+
+                <!-- 🔴 CAMBIA AQUÍ -->
+
+                <a
+                    href="TU_LINK_DE_BEHANCE"
+                    target="_blank"
+                    rel="noopener">
+
+                    Behance ↗
+
+                </a>
+
+
+
+                <!-- 🔴 CAMBIA AQUÍ -->
+
+                <a
+                    href="TU_LINK_DE_LINKEDIN"
+                    target="_blank"
+                    rel="noopener">
+
+                    LinkedIn ↗
+
+                </a>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ==================================================
+         FOOTER
+    ================================================== -->
+
+    <footer class="wrap">
+
+
+        <!-- 🔴 CAMBIA AQUÍ -->
+
+        <span>
+
+            Lisett Morales — Diseño & Comunicación
+
+        </span>
+
+
+        <span>
+
+            © 2026
+
+        </span>
+
+
+    </footer>
+
+
+
+    <!-- ==================================================
+         JAVASCRIPT
+    ================================================== -->
+
+    <script>
+
+
+        /* =================================================
+           MENÚ MOBILE
+        ================================================= */
+
+
+        const navToggle =
+            document.getElementById(
+                'navToggle'
+            );
+
+
+        const navLinks =
+            document.getElementById(
+                'navLinks'
+            );
+
+
+        navToggle.addEventListener(
+            'click',
+            () => {
+
+
+                const isOpen =
+                    navLinks.classList.toggle(
+                        'open'
+                    );
+
+
+                navToggle.setAttribute(
+                    'aria-expanded',
+                    isOpen
+                );
+
+
+            }
+        );
+
+
+
+        /* =================================================
+           CERRAR MENÚ AL HACER CLICK
+        ================================================= */
+
+
+        navLinks
+            .querySelectorAll('a')
+            .forEach(a => {
+
+
+                a.addEventListener(
+                    'click',
+                    () => {
+
+
+                        navLinks.classList.remove(
+                            'open'
+                        );
+
+
+                        navToggle.setAttribute(
+                            'aria-expanded',
+                            false
+                        );
+
+
+                    }
+                );
+
+
+            });
+
+
+
+        /* =================================================
+           ANIMACIÓN DE APARICIÓN
+        ================================================= */
+
+
+        const revealEls =
+            document.querySelectorAll(
+                '.reveal'
+            );
+
+
+        if (
+            'IntersectionObserver'
+            in window
+        ) {
+
+
+            const io =
+                new IntersectionObserver(
+                    (entries) => {
+
+
+                        entries.forEach(
+                            entry => {
+
+
+                                if (
+                                    entry.isIntersecting
+                                ) {
+
+
+                                    entry.target
+                                        .classList
+                                        .add('in');
+
+
+                                    io.unobserve(
+                                        entry.target
+                                    );
+
+
+                                }
+
+
+                            }
+                        );
+
+
+                    },
+                    {
+                        threshold: 0.15
+                    }
+                );
+
+
+            revealEls.forEach(
+                el => io.observe(el)
+            );
+
+
+        } else {
+
+
+            revealEls.forEach(
+                el =>
+                    el.classList.add('in')
+            );
+
+
         }
-      });
-    }, { threshold: 0.15 });
-    revealEls.forEach(el => io.observe(el));
-  } else {
-    revealEls.forEach(el => el.classList.add('in'));
-  }
-</script>
+
+
+    </script>
+
 
 </body>
+
 </html>
