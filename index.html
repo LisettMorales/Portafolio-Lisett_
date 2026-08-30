@@ -237,8 +237,8 @@
             vector-effect: non-scaling-stroke;
 
             /*
-                La línea comienza invisible
-                y se va dibujando.
+                La línea se dibuja y se
+                borra en loop, sin parar.
             */
 
             stroke-dasharray: 1500;
@@ -246,9 +246,9 @@
             stroke-dashoffset: 1500;
 
             animation:
-                drawGrid 2.5s
+                drawGrid 6s
                 cubic-bezier(.65, 0, .35, 1)
-                forwards;
+                infinite alternate;
 
         }
 
@@ -2084,15 +2084,24 @@
 
                 Hablemos de tu
                 próximo proyecto.
-            
-            </a>
-                Lisett604@hotmail.com
 
-                </a>
+
             </h2>
 
 
+
+            <!-- CORREO -->
+
+            <a
+                class="contact-email reveal"
+                style="transition-delay:.1s"
+                href="mailto:lisett604@hotmail.com">
+
+                lisett604@hotmail.com
+
             </a>
+
+
 
             <!-- ==================================================
                  REDES DE CONTACTO
@@ -2139,16 +2148,8 @@
                     LinkedIn ↗
 
                 </a>
-                
-                <!-- CORREO -->
 
-            <a
-                class="contact-email reveal"
-                style="transition-delay:.1s"
-                href="mailto:lisett604@hotmail.com">
 
-                </a>
-                
             </div>
 
 
