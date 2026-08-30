@@ -973,6 +973,113 @@
         }
 
 
+
+        /* ==================================================
+           DESCARGAR CV
+        ================================================== */
+
+        .cv {
+
+            padding-bottom: 96px;
+
+            border-bottom:
+                1px solid var(--line);
+
+        }
+
+
+        .cv-lead {
+
+            font-family: 'Archivo', sans-serif;
+
+            font-size: 17px;
+
+            color: var(--ink-soft);
+
+            margin-bottom: 28px;
+
+        }
+
+
+        .cv-buttons {
+
+            display: flex;
+
+            gap: 20px;
+
+            flex-wrap: wrap;
+
+        }
+
+
+        .cv-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            padding: 14px 28px;
+
+            border: 1px solid var(--accent);
+
+            border-radius: 999px;
+
+            font-family: 'Space Mono', monospace;
+
+            font-size: 13px;
+
+            letter-spacing: 0.05em;
+
+            text-transform: uppercase;
+
+            color: var(--accent);
+
+            background: transparent;
+
+            transition:
+                background 0.3s ease,
+                color 0.3s ease,
+                transform 0.25s ease,
+                box-shadow 0.3s ease;
+
+        }
+
+
+        .cv-btn svg {
+
+            width: 14px;
+
+            height: 14px;
+
+            flex-shrink: 0;
+
+        }
+
+
+        .cv-btn:hover {
+
+            background: var(--accent);
+
+            color: var(--paper);
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 12px 22px -14px rgba(214, 67, 46, 0.55);
+
+        }
+
+
+        .cv-btn:active {
+
+            transform: translateY(0) scale(0.98);
+
+        }
+
+
+
         /* ==================================================
            CONTACTO
         ================================================== */
@@ -1300,17 +1407,6 @@
 
             }
 
-
-
-            /* ---------- SERVICES ---------- */
-
-            .service-grid {
-
-                grid-template-columns:
-                    1fr 1fr;
-
-            }
-
         }
 
 
@@ -1330,14 +1426,6 @@
 
                 padding:
                     18px 22px;
-
-            }
-
-
-            .service-grid {
-
-                grid-template-columns:
-                    1fr;
 
             }
 
@@ -1538,9 +1626,9 @@
 
                 <li>
 
-                    <a href="#proyectos">
+                    <a href="#cv">
 
-                        Proyectos
+                        CV
 
                     </a>
 
@@ -1549,9 +1637,9 @@
 
                 <li>
 
-                    <a href="#servicios">
+                    <a href="#proyectos">
 
-                        Servicios
+                        Proyectos
 
                     </a>
 
@@ -1811,6 +1899,73 @@
 
 
         <!-- ==================================================
+             DESCARGAR CV
+             Reemplaza los href="..." por la ruta real
+             de tus archivos PDF cuando los tengas listos.
+        ================================================== -->
+
+        <section
+            id="cv"
+            class="cv">
+
+
+            <div class="sec-head">
+
+                <h2 class="reveal">
+                    Descargar CV
+                </h2>
+
+                <span class="label">
+                    02 — Hoja de vida
+                </span>
+
+            </div>
+
+
+            <p class="cv-lead reveal">
+                Descarga mi hoja de vida:
+            </p>
+
+
+            <div class="cv-buttons reveal" style="transition-delay:.08s">
+
+                <a
+                    class="cv-btn"
+                    href="cv-lisett-morales-es.pdf"
+                    download>
+
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 3v12"/>
+                        <path d="M7 10l5 5 5-5"/>
+                        <path d="M4 21h16"/>
+                    </svg>
+
+                    Versión en Español
+
+                </a>
+
+                <a
+                    class="cv-btn"
+                    href="cv-lisett-morales-en.pdf"
+                    download>
+
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 3v12"/>
+                        <path d="M7 10l5 5 5-5"/>
+                        <path d="M4 21h16"/>
+                    </svg>
+
+                    Versión en Inglés
+
+                </a>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- ==================================================
              SELECTED WORK / PROYECTOS
              Reemplaza cada .work-thumb por tu imagen real:
              <div class="work-thumb"><img src="tu-imagen.jpg" alt="Nombre del proyecto"></div>
@@ -1828,7 +1983,7 @@
                 </h2>
 
                 <span class="label">
-                    02 — 2024–2026
+                    03 — 2024–2026
                 </span>
 
             </div>
@@ -1918,7 +2073,7 @@
 
             <span class="label">
 
-                03 — Contacto
+                04 — Contacto
 
             </span>
 
