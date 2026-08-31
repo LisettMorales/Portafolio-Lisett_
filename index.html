@@ -897,15 +897,26 @@
         }
 
 
-        /* thumb con contenido embebido real (ej. Instagram):
-           altura libre, sin recorte ni zoom al hover */
+        /* thumb con contenido embebido real (Instagram, Behance, etc.):
+           marco de tamaño fijo, el embed se escala adentro
+           para que todas las tarjetas se vean del mismo tamaño */
         .work-thumb--embed {
 
             aspect-ratio: auto;
 
-            background: transparent;
+            height: 340px;
 
-            border: none;
+            width: 100%;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background: var(--paper-dim);
+
+            border: 1px solid var(--line);
+
+            border-radius: 2px;
 
             padding: 0;
 
@@ -914,11 +925,26 @@
         }
 
 
+        .work-thumb--embed iframe {
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            transform-origin: top left;
+
+            border: 0;
+
+        }
+
+
         .work-card:hover .work-thumb--embed {
 
             transform: none;
 
-            border-color: transparent;
+            border-color: var(--accent);
 
         }
 
@@ -1930,6 +1956,8 @@
 
         <!-- ==================================================
              DESCARGAR CV
+             Reemplaza los href="..." por la ruta real
+             de tus archivos PDF cuando los tengas listos.
         ================================================== -->
 
         <section
@@ -2023,13 +2051,21 @@
                 <!-- PROYECTO 1 -->
                 <div class="work-card reveal">
 
-                    <div class="work-thumb">
-                        <span class="tile-mark">＋</span>
-                        <span class="tile-note">Imagen pendiente</span>
+                    <div class="work-thumb work-thumb--embed">
+                        <iframe
+                            src="https://www.behance.net/embed/project/247520127?ilo0=1"
+                            width="404"
+                            height="316"
+                            allowfullscreen
+                            loading="lazy"
+                            frameborder="0"
+                            allow="clipboard-write"
+                            referrerpolicy="strict-origin-when-cross-origin">
+                        </iframe>
                     </div>
 
                     <div class="work-meta">
-                        <span class="work-name">Nombre del proyecto</span>
+                        <span class="work-name">Branding Corporativo</span>
                         <span class="work-cat">Branding</span>
                     </div>
 
@@ -2082,7 +2118,7 @@
 
                     <div class="work-meta">
                         <span class="work-name">Nombre del proyecto</span>
-                        <span class="work-cat">Diseño Web</span>
+                        <span class="work-cat">Modelado ED</span>
                     </div>
 
                 </div>
@@ -2376,6 +2412,69 @@
     <!-- Script oficial de Instagram: renderiza el embed
          de la sección Proyectos (Social Media) -->
     <script async src="//www.instagram.com/embed.js"></script>
+
+
+    <!-- ==================================================
+         AJUSTAR EMBEDS AL MISMO TAMAÑO
+         Escala cualquier iframe (Instagram, Behance, etc.)
+         dentro de .work-thumb--embed para que quepa en el
+         mismo marco, sin importar el tamaño original que
+         traiga cada plataforma.
+    ================================================== -->
+    <script>
+
+        function fitEmbeds() {
+
+            document
+                .querySelectorAll('.work-thumb--embed')
+                .forEach(box => {
+
+                    const frame = box.querySelector('iframe');
+
+                    if (!frame) return;
+
+                    const naturalW =
+                        parseInt(frame.getAttribute('width')) ||
+                        frame.offsetWidth ||
+                        box.clientWidth;
+
+                    const naturalH =
+                        parseInt(frame.getAttribute('height')) ||
+                        frame.offsetHeight ||
+                        box.clientHeight;
+
+                    if (!naturalW || !naturalH) return;
+
+                    const scale = Math.max(
+                        box.clientWidth / naturalW,
+                        box.clientHeight / naturalH
+                    );
+
+                    frame.style.width = naturalW + 'px';
+                    frame.style.height = naturalH + 'px';
+                    frame.style.transform = `scale(${scale})`;
+
+                    frame.style.left =
+                        ((box.clientWidth - naturalW * scale) / 2) + 'px';
+
+                    frame.style.top =
+                        ((box.clientHeight - naturalH * scale) / 2) + 'px';
+
+                });
+
+        }
+
+        window.addEventListener('load', fitEmbeds);
+        window.addEventListener('resize', fitEmbeds);
+
+        /* el iframe de Instagram tarda un momento en aparecer
+           (lo genera su propio script), así que reintentamos
+           un par de veces después de cargar la página */
+        [500, 1200, 2500].forEach(ms =>
+            setTimeout(fitEmbeds, ms)
+        );
+
+    </script>
 
 
 </body>
