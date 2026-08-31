@@ -897,6 +897,32 @@
         }
 
 
+        /* thumb con contenido embebido real (ej. Instagram):
+           altura libre, sin recorte ni zoom al hover */
+        .work-thumb--embed {
+
+            aspect-ratio: auto;
+
+            background: transparent;
+
+            border: none;
+
+            padding: 0;
+
+            display: block;
+
+        }
+
+
+        .work-card:hover .work-thumb--embed {
+
+            transform: none;
+
+            border-color: transparent;
+
+        }
+
+
         .work-thumb .tile-mark {
 
             font-family: 'Fraunces', serif;
@@ -1904,8 +1930,6 @@
 
         <!-- ==================================================
              DESCARGAR CV
-             Reemplaza los href="..." por la ruta real
-             de tus archivos PDF cuando los tengas listos.
         ================================================== -->
 
         <section
@@ -2015,13 +2039,17 @@
                 <!-- PROYECTO 2 -->
                 <div class="work-card reveal" style="transition-delay:.08s">
 
-                    <div class="work-thumb">
-                        <span class="tile-mark">＋</span>
-                        <span class="tile-note">Imagen pendiente</span>
+                    <div class="work-thumb work-thumb--embed">
+                        <blockquote
+                            class="instagram-media"
+                            data-instgrm-permalink="https://www.instagram.com/p/DX2IYW3D4Jf/"
+                            data-instgrm-version="14"
+                            style="background:#FFF; border:0; border-radius:3px; margin:1px; max-width:540px; min-width:326px; padding:0; width:calc(100% - 2px);">
+                        </blockquote>
                     </div>
 
                     <div class="work-meta">
-                        <span class="work-name">Nombre del proyecto</span>
+                        <span class="work-name">Manual de Hechizos</span>
                         <span class="work-cat">Social Media</span>
                     </div>
 
@@ -2119,7 +2147,7 @@
                 <!-- Instagram -->
 
                 <a
-                    href="https://www.instagram.com/lisett_morales"
+                    href="www.instagram.com/lisett_morales"
                     target="_blank"
                     rel="noopener">
 
@@ -2132,7 +2160,7 @@
                 <!-- Behance -->
 
                 <a
-                    href="https://www.behance.net/lisettmorales1"
+                    href="www.behance.net/lisettmorales1"
                     target="_blank"
                     rel="noopener">
 
@@ -2145,7 +2173,7 @@
                 <!-- Linkedin -->
 
                 <a
-                    href="https://www.linkedin.com/in/lisett-morales-villamil-753b09200/"
+                    href="www.linkedin.com/in/lisett-morales-villamil-753b09200/"
                     target="_blank"
                     rel="noopener">
 
@@ -2343,6 +2371,11 @@
 
 
     </script>
+
+
+    <!-- Script oficial de Instagram: renderiza el embed
+         de la sección Proyectos (Social Media) -->
+    <script async src="//www.instagram.com/embed.js"></script>
 
 
 </body>
